@@ -19,15 +19,15 @@
   
   
   <title>LaTeX技巧 | Starmoon</title>
-  <meta name="description" content="字号设置从小到大依次为： 12345678910\tiny\scriptsize\footnotesize\small\normalsize\large\Large\LARGE\huge\Huge  字体颜色设置12\usepackage&amp;#123;color&amp;#125;	%这句加在导言区&amp;#123;\color&amp;#123;red&amp;#125;内容&amp;#125;  去除表格中的空白1234567\be">
+  <meta name="description" content="字号设置从小到大依次为： 12345678910\tiny\scriptsize\footnotesize\small\normalsize\large\Large\LARGE\huge\Huge  直接设置字号 1\fontsize&amp;#123;9.85pt&amp;#125;&amp;#123;\baselineskip&amp;#125;\selectfont    字体颜色设置12\usepackage&amp;#123;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LaTeX技巧">
 <meta property="og:url" content="https://starmoon.space/2021/03/31/LaTeX%E6%8A%80%E5%B7%A7/index.html">
 <meta property="og:site_name" content="Starmoon">
-<meta property="og:description" content="字号设置从小到大依次为： 12345678910\tiny\scriptsize\footnotesize\small\normalsize\large\Large\LARGE\huge\Huge  字体颜色设置12\usepackage&amp;#123;color&amp;#125;	%这句加在导言区&amp;#123;\color&amp;#123;red&amp;#125;内容&amp;#125;  去除表格中的空白1234567\be">
+<meta property="og:description" content="字号设置从小到大依次为： 12345678910\tiny\scriptsize\footnotesize\small\normalsize\large\Large\LARGE\huge\Huge  直接设置字号 1\fontsize&amp;#123;9.85pt&amp;#125;&amp;#123;\baselineskip&amp;#125;\selectfont    字体颜色设置12\usepackage&amp;#123;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-30T16:16:00.000Z">
-<meta property="article:modified_time" content="2021-04-14T14:16:47.000Z">
+<meta property="article:modified_time" content="2021-05-14T14:32:32.000Z">
 <meta property="article:author" content="赵星宇">
 <meta property="article:tag" content="LaTeX">
 <meta name="twitter:card" content="summary">
@@ -385,6 +385,11 @@
       
         <h1 id="字号设置"><a href="#字号设置" class="headerlink" title="字号设置"></a>字号设置</h1><p>从小到大依次为：</p>
 <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\tiny</span></span><br><span class="line"><span class="keyword">\scriptsize</span></span><br><span class="line"><span class="keyword">\footnotesize</span></span><br><span class="line"><span class="keyword">\small</span></span><br><span class="line"><span class="keyword">\normalsize</span></span><br><span class="line"><span class="keyword">\large</span></span><br><span class="line"><span class="keyword">\Large</span></span><br><span class="line"><span class="keyword">\LARGE</span></span><br><span class="line"><span class="keyword">\huge</span></span><br><span class="line"><span class="keyword">\Huge</span></span><br></pre></td></tr></table></figure>
+
+<p>直接设置字号</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\fontsize</span>&#123;9.85pt&#125;&#123;<span class="keyword">\baselineskip</span>&#125;<span class="keyword">\selectfont</span></span><br></pre></td></tr></table></figure>
+
+
 
 <h1 id="字体颜色设置"><a href="#字体颜色设置" class="headerlink" title="字体颜色设置"></a>字体颜色设置</h1><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;color&#125;	<span class="comment">%这句加在导言区</span></span><br><span class="line">&#123;<span class="keyword">\color</span>&#123;red&#125;内容&#125;</span><br></pre></td></tr></table></figure>
 
