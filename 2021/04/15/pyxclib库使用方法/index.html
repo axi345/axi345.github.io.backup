@@ -19,15 +19,15 @@
   
   
   <title>pyxclib库使用方法 | Starmoon</title>
-  <meta name="description" content="说明极限多标记分类问题的工具。安装方式（shell中输入）： 123git clone https:&#x2F;&#x2F;github.com&#x2F;kunaldahiya&#x2F;pyxclib.gitcd pyxclibpython3 setup.py install --user">
+  <meta name="description" content="说明极限多标记分类问题的工具。安装方式（shell中输入）： 123git clone https:&#x2F;&#x2F;github.com&#x2F;kunaldahiya&#x2F;pyxclib.gitcd pyxclibpython3 setup.py install --user  方法获取topk个元素    from xclib.evaluation.xc_metrics import _get_topk 123456">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pyxclib库使用方法">
 <meta property="og:url" content="https://starmoon.space/2021/04/15/pyxclib%E5%BA%93%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="Starmoon">
-<meta property="og:description" content="说明极限多标记分类问题的工具。安装方式（shell中输入）： 123git clone https:&#x2F;&#x2F;github.com&#x2F;kunaldahiya&#x2F;pyxclib.gitcd pyxclibpython3 setup.py install --user">
+<meta property="og:description" content="说明极限多标记分类问题的工具。安装方式（shell中输入）： 123git clone https:&#x2F;&#x2F;github.com&#x2F;kunaldahiya&#x2F;pyxclib.gitcd pyxclibpython3 setup.py install --user  方法获取topk个元素    from xclib.evaluation.xc_metrics import _get_topk 123456">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-15T05:00:00.000Z">
-<meta property="article:modified_time" content="2021-04-15T07:03:19.000Z">
+<meta property="article:modified_time" content="2021-05-25T07:09:35.167Z">
 <meta property="article:author" content="赵星宇">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -385,6 +385,39 @@
       
         <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>极限多标记分类问题的工具。安装方式（shell中输入）：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/kunaldahiya/pyxclib.git</span><br><span class="line"><span class="built_in">cd</span> pyxclib</span><br><span class="line">python3 setup.py install --user</span><br></pre></td></tr></table></figure>
+
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>获取topk个元素    from xclib.evaluation.xc_metrics import _get_topk</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">_get_topk(X, pad_indx=<span class="number">0</span>, k=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> xclib.evaluation.xc_metrics <span class="keyword">import</span> _get_topk</span><br><span class="line"><span class="keyword">from</span> scipy.sparse <span class="keyword">import</span> csr_matrix</span><br><span class="line"></span><br><span class="line">a = csr_matrix(np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>]]))</span><br><span class="line">print(_get_topk(a, ))</span><br><span class="line">==&gt;</span><br><span class="line">[[<span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">1</span> <span class="number">0</span>]]</span><br></pre></td></tr></table></figure>
+
+<p>计算逆标记属性    from xclib.evaluation.xc_metrics import compute_inv_propesity</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">compute_inv_propesity(labels, A, B)</span><br><span class="line">labels: csr_matrix	A: <span class="built_in">float</span>	B: <span class="built_in">float</span></span><br></pre></td></tr></table></figure>
+
+<p>计算precision    from xclib.evaluation.xc_metrics import precision</p>
+<p>计算ndcg    from xclib.evaluation.xc_metrics import ndcg</p>
+<p>计算recall    from xclib.evaluation.xc_metrics import recall</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">precision(X, true_labels, k=<span class="number">5</span>)</span><br><span class="line">X: csr_matrix	true_labels: csr_matrix	k: <span class="built_in">int</span></span><br></pre></td></tr></table></figure>
+
+<p>计算psprecision    from xclib.evaluation.xc_metrics import psprecision</p>
+<p>计算psndcg    from xclib.evaluation.xc_metrics import psndcg</p>
+<p>计算psrecall    from xclib.evaluation.xc_metrics import psrecall</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">psprecision(X, true_labels, inv_psp, k=<span class="number">5</span>)</span><br><span class="line">X: csr_matrix	true_labels: csr_matrix	inv_psp: np.ndarray	k: <span class="built_in">int</span></span><br></pre></td></tr></table></figure>
+
+<p>最近邻搜索    from xclib.utils.ann import NearestNeighbor</p>
+<p>近似最近邻搜索（使用nmslib）    from xclib.utils.ann import HNSW</p>
+<p>近似最近邻搜索（使用hnswlib）    from xclib.utils.ann import HNSWM</p>
+<p>寻找样本对应的标记最近邻    from xclib.utils.shortlist import ShortlistInstances</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.sparse <span class="keyword">import</span> load_npz</span><br><span class="line"><span class="keyword">from</span> xclib.utils.shortlist <span class="keyword">import</span> ShortlistCentroids, ShortlistInstances</span><br><span class="line"></span><br><span class="line">x_train = load_npz(<span class="string">&#x27;F:/数据集/Extreme Classification/BOW/EURLex-4K/x_train.npz&#x27;</span>)</span><br><span class="line">y_train = load_npz(<span class="string">&#x27;F:/数据集/Extreme Classification/BOW/EURLex-4K/y_train.npz&#x27;</span>)</span><br><span class="line">ann = ShortlistInstances()</span><br><span class="line">ann.fit(x_train.toarray(), y_train)	<span class="comment">#属性必须是np.array</span></span><br><span class="line">ann.query(x_train[:<span class="number">10</span>].toarray())	<span class="comment">#必须是np.array，返回[标记np.ndarray,相似度np.ndarray]</span></span><br></pre></td></tr></table></figure>
+
+<p>寻找标记对应的标记最近邻    from xclib.utils.shortlist import ShortlistCentroids</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.sparse <span class="keyword">import</span> load_npz</span><br><span class="line"><span class="keyword">from</span> xclib.utils.shortlist <span class="keyword">import</span> ShortlistCentroids, ShortlistInstances</span><br><span class="line"></span><br><span class="line">x_train = load_npz(<span class="string">&#x27;F:/数据集/Extreme Classification/BOW/EURLex-4K/x_train.npz&#x27;</span>)</span><br><span class="line">y_train = load_npz(<span class="string">&#x27;F:/数据集/Extreme Classification/BOW/EURLex-4K/y_train.npz&#x27;</span>)</span><br><span class="line">ann = ShortlistCentroids()</span><br><span class="line">ann.fit(x_train, y_train)</span><br><span class="line">ann.query(x_train[:<span class="number">10</span>].toarray())	<span class="comment">#必须是np.array，返回[标记np.ndarray,相似度np.ndarray]</span></span><br></pre></td></tr></table></figure>
+
+<p>随机游走提取label相关性</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> xclib.utils.graph <span class="keyword">import</span> RandomWalk</span><br><span class="line"></span><br><span class="line">label_correlation = RandomWalk(labels).simulate(walk_to=<span class="number">50</span>, p_reset=<span class="number">0.2</span>, k=<span class="number">10</span>)</span><br><span class="line">label_correlation = normalize(label_correlation, norm=<span class="string">&quot;l1&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>2-Means++平衡聚类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">from</span> xclib.utils.clustering <span class="keyword">import</span> cluster_balance</span><br><span class="line"><span class="keyword">from</span> xclib.utils.clustering <span class="keyword">import</span> b_kmeans_sparse</span><br><span class="line"></span><br><span class="line">splitter = functools.partial(b_kmeans_sparse)</span><br><span class="line">_, mapping = cluster_balance(</span><br><span class="line">    X=label_centroids,</span><br><span class="line">    clusters=[np.asarray(np.arange(labels.shape[<span class="number">1</span>]), dtype=np.int64)],</span><br><span class="line">    num_clusters=num_clusters,</span><br><span class="line">    splitter=splitter)</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
     <div class="article-footer">
